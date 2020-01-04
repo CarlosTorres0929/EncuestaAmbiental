@@ -18,6 +18,9 @@ var $moto_compartida;
 var $bicicleta;
 var $caminar;
 var $vehiculo_electrico;
+var $diasincarro;
+var $diasinmoto;
+var $otro;
 
 	function Transporte()
 	{
@@ -32,6 +35,9 @@ var $vehiculo_electrico;
 		 $bicicleta = false;
 		 $caminar = false;
 		 $vehiculo_electrico = false;
+		 $diasincarro = false;
+		 $diasinmoto = false;
+		 $otro = "";
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +46,7 @@ var $vehiculo_electrico;
 	function agregarTransporte($dataTrabajo, $dataHogar, $conexion)
 	{
 
-		$sql1 = "
+		 $sql1 = "
 		 INSERT INTO  transporte_trabajo (
 		`id` ,
 		`cedula` ,
@@ -53,10 +59,13 @@ var $vehiculo_electrico;
 		`bicicleta`,
 		`caminar`,
 		`vehiculo_electrico`,
+		`diasincarro`,
+		`diasinmoto`,
+		`otro`,
 		`fecha_registro`  
 		)
 		VALUES (
-		'NULL' , '".$dataTrabajo->cedula."','".$dataTrabajo->bus."', '".$dataTrabajo->sistema_metro."',  '".$dataTrabajo->carro."','".$dataTrabajo->moto."','".$dataTrabajo->carro_compartido."','".$dataTrabajo->moto_compartida."','".$dataTrabajo->bicicleta."','".$dataTrabajo->caminar."','".$dataTrabajo->vehiculo_electrico."', '".date("Y-m-d")."')";
+		'NULL' , '".$dataTrabajo->cedula."','".$dataTrabajo->bus."', '".$dataTrabajo->sistema_metro."',  '".$dataTrabajo->carro."','".$dataTrabajo->moto."','".$dataTrabajo->carro_compartido."','".$dataTrabajo->moto_compartida."','".$dataTrabajo->bicicleta."','".$dataTrabajo->caminar."','".$dataTrabajo->vehiculo_electrico."','".$dataTrabajo->diasincarro."','".$dataTrabajo->diasinmoto."','".$dataTrabajo->otro."', '".date("Y-m-d")."')";
 	
 		$conexion->query($sql1);
 		
@@ -73,10 +82,13 @@ var $vehiculo_electrico;
 		`bicicleta`,
 		`caminar`,
 		`vehiculo_electrico`,
+		`diasincarro`,
+		`diasinmoto`,
+		`otro`,
 		`fecha_registro` 
 		)
 		VALUES (
-		'NULL' , '".$dataHogar->cedula."','".$dataHogar->bus."', '".$dataHogar->sistema_metro."',  '".$dataHogar->carro."','".$dataHogar->moto."','".$dataHogar->carro_compartido."','".$dataHogar->moto_compartida."','".$dataHogar->bicicleta."','".$dataHogar->caminar."','".$dataHogar->vehiculo_electrico."', '".date("Y-m-d")."')";
+		'NULL' , '".$dataHogar->cedula."','".$dataHogar->bus."', '".$dataHogar->sistema_metro."',  '".$dataHogar->carro."','".$dataHogar->moto."','".$dataHogar->carro_compartido."','".$dataHogar->moto_compartida."','".$dataHogar->bicicleta."','".$dataHogar->caminar."','".$dataHogar->vehiculo_electrico."','".$dataHogar->diasincarro."','".$dataHogar->diasinmoto."','".$dataHogar->otro."', '".date("Y-m-d")."')";
 
 		
 		return $conexion->query($sql);

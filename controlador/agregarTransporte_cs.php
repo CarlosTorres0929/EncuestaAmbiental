@@ -72,12 +72,27 @@ if(isset($_POST['agregar']) && $_POST['agregar'] == 1)
 		$dataTrabajo->caminar = 0;
 	}
 
-	if (mysqli_real_escape_string(@$conexion,@$_POST['vehiculo_electricoTrabajo']) == 1){
+	if (mysqli_real_escape_string($conexion,@$_POST['vehiculo_electricoTrabajo']) == 1){	
 		$dataTrabajo->vehiculo_electrico = mysqli_real_escape_string($conexion,@$_POST['vehiculo_electricoTrabajo']);
 	}else{
 		$dataTrabajo->vehiculo_electrico = 0;
 	}				
 	
+	if (mysqli_real_escape_string($conexion,@$_POST['diasincarro_trabajo']) == 1){	
+		$dataTrabajo->diasincarro = mysqli_real_escape_string($conexion,@$_POST['diasincarro_trabajo']);
+	}else{
+		$dataTrabajo->diasincarro = 0;
+	}
+
+	if (mysqli_real_escape_string($conexion,@$_POST['diasinmoto_trabajo']) == 1){	
+		$dataTrabajo->diasinmoto = mysqli_real_escape_string($conexion,@$_POST['diasinmoto_trabajo']);
+	}else{
+		$dataTrabajo->diasinmoto = 0;
+	}
+
+			
+	$dataTrabajo->otro = mysqli_real_escape_string($conexion,@$_POST['otro_trabajo']);
+
 
 	@$dataHogar->cedula = mysqli_real_escape_string(@$conexion,@$_POST['cedula']);
 
@@ -136,6 +151,20 @@ if(isset($_POST['agregar']) && $_POST['agregar'] == 1)
 		$dataHogar->vehiculo_electrico = 0;
 	}
 
+		if (mysqli_real_escape_string($conexion,@$_POST['diasincarro_hogar']) == 1){	
+		$dataHogar->diasincarro = mysqli_real_escape_string($conexion,@$_POST['diasincarro_hogar']);
+	}else{
+		$dataHogar->diasincarro = 0;
+	}
+
+	if (mysqli_real_escape_string($conexion,@$_POST['diasinmoto_hogar']) == 1){	
+		$dataHogar->diasinmoto = mysqli_real_escape_string($conexion,@$_POST['diasinmoto_hogar']);
+	}else{
+		$dataHogar->diasinmoto = 0;
+	}
+
+		$dataHogar->otro = mysqli_real_escape_string($conexion,@$_POST['otro_hogar']);
+	
 	if($tph->agregarTransporte($dataTrabajo,$dataHogar, $conexion))
 	{	
 		echo "<script>alert('Transporte agregado exitosamente')</script>";	
