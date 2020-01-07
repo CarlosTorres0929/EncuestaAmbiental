@@ -14,15 +14,10 @@ include("controlador/agregarTransporte_cs.php");
 
 
 </style>
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
             <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+          
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <meta charset="utf-8" />
@@ -45,7 +40,7 @@ include("controlador/agregarTransporte_cs.php");
         <div class="col-md-12 mx-auto">
            <div class="card">
                <div class="card-body">
-                   <form action="#"  name="agregar" id="agregar" method="POST" ">
+                   <form action="#"  name="agregar" id="agregar" method="POST">
                     <input type="hidden" name="agregar" id="agregar" value="1" />
                        <div class="form-group">
                        <input type="text" class="form-control" name="cedula" id="cedula" required="Este Campo es Obligatorio" placeholder="Ingrese Su Cedula" autofocus> 
@@ -55,23 +50,29 @@ include("controlador/agregarTransporte_cs.php");
                        <label><strong style="color: black; font-size: 150%;">¿ COMO TE MOVILIZASTE PARA VENIR AYER AL TRABAJO ?</strong></label> 
                        </center>
                    </div>
-                   
+                 <!--<table border="0">
+                    <tr>
+                       <td><input type="checkbox" name="busTrabajo1" id="busTrabajo1" value="1"></td> 
+                       <td><img src="utilidades/bus.png" width="80px"></td>
+                       <td>BUS</td>
+                    </tr>
+                </table> -->
                 <div class="thumbnail">
-                <div class="custom-control custom-checkbox custom-control-inline">
+                <div class="custom-control custom-checkbox custom-control-inline" >
                 <input type="checkbox" class="custom-control-input" name="busTrabajo" id="busTrabajo" value="1">
                 <label class="custom-control-label" for="busTrabajo">
-                    <img src="utilidades/bus.png" width="80px">
+                    <img src="utilidades/bus1.png" width="80px">
                     BUS
                 </label>
                 </div>
-                 <div class="custom-control custom-checkbox custom-control-inline">
+                 <div class="custom-control custom-checkbox custom-control-inline" >
                 <input type="checkbox" class="custom-control-input" name="sistema_metroTrabajo" id="sistema_metroTrabajo" value="1">
                 <label class="custom-control-label" for="sistema_metroTrabajo">
                     <img src="utilidades/metro.png" width="80px">
                     SISTEMA METRO
                 </label>
                 </div>
-                    <div class="custom-control custom-checkbox custom-control-inline">
+                    <div class="custom-control custom-checkbox custom-control-inline" align="center">
                     <input type="checkbox" class="custom-control-input" name="carroTrabajo" id="carroTrabajo" value="1">
                     <label class="custom-control-label" for="carroTrabajo">
                     <img src="utilidades/carro.png" width="80px">
