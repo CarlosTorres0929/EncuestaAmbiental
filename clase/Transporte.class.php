@@ -62,10 +62,11 @@ var $otro;
 		`diasincarro`,
 		`diasinmoto`,
 		`otro`,
-		`fecha_registro`  
+		`fecha_registro`,
+		`total` 
 		)
 		VALUES (
-		'NULL' , '".$dataTrabajo->cedula."','".$dataTrabajo->bus."', '".$dataTrabajo->sistema_metro."',  '".$dataTrabajo->carro."','".$dataTrabajo->moto."','".$dataTrabajo->carro_compartido."','".$dataTrabajo->moto_compartida."','".$dataTrabajo->bicicleta."','".$dataTrabajo->caminar."','".$dataTrabajo->vehiculo_electrico."','".$dataTrabajo->diasincarro."','".$dataTrabajo->diasinmoto."','".$dataTrabajo->otro."', '".date("Y-m-d")."')";
+		'NULL' , '".$dataTrabajo->cedula."','".$dataTrabajo->bus."', '".$dataTrabajo->sistema_metro."',  '".$dataTrabajo->carro."','".$dataTrabajo->moto."','".$dataTrabajo->carro_compartido."','".$dataTrabajo->moto_compartida."','".$dataTrabajo->bicicleta."','".$dataTrabajo->caminar."','".$dataTrabajo->vehiculo_electrico."','".$dataTrabajo->diasincarro."','".$dataTrabajo->diasinmoto."','".$dataTrabajo->otro."', '".date("Y-m-d")."','".$dataTrabajo->total."')";
 	
 		$conexion->query($sql1);
 		
@@ -85,10 +86,11 @@ var $otro;
 		`diasincarro`,
 		`diasinmoto`,
 		`otro`,
-		`fecha_registro` 
+		`fecha_registro`,
+		`totalh` 
 		)
 		VALUES (
-		'NULL' , '".$dataHogar->cedula."','".$dataHogar->bus."', '".$dataHogar->sistema_metro."',  '".$dataHogar->carro."','".$dataHogar->moto."','".$dataHogar->carro_compartido."','".$dataHogar->moto_compartida."','".$dataHogar->bicicleta."','".$dataHogar->caminar."','".$dataHogar->vehiculo_electrico."','".$dataHogar->diasincarro."','".$dataHogar->diasinmoto."','".$dataHogar->otro."', '".date("Y-m-d")."')";
+		'NULL' , '".$dataHogar->cedula."','".$dataHogar->bus."', '".$dataHogar->sistema_metro."',  '".$dataHogar->carro."','".$dataHogar->moto."','".$dataHogar->carro_compartido."','".$dataHogar->moto_compartida."','".$dataHogar->bicicleta."','".$dataHogar->caminar."','".$dataHogar->vehiculo_electrico."','".$dataHogar->diasincarro."','".$dataHogar->diasinmoto."','".$dataHogar->otro."', '".date("Y-m-d")."','".$dataHogar->totalh."')";
 
 		
 		return $conexion->query($sql);

@@ -1,11 +1,14 @@
 <header class="header">
         <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" >
-    <img src="./utilidades/logo.png" width="100"  height="100" class="d-inline-block align-top" alt="">
-   <b style="font-family: calibri; font-size: 150%; color: black;" > Encuesta de Movilidad Sostenible</b>
+    <b style="font-family: calibri; font-size: 150%; color: #501D12;" > Encuesta de movilidad sostenible</b>
   </a>
   <a class="navbar-brand" >
-    <b style="color: black;font-family: calibri;">Crepes & Waffles</b>
+   
+  </a>
+  <a>
+  	
+<img src="./utilidades/moneda.png" width="180"  height="100" class="d-inline-block align-top" alt="">
   </a>
 </nav>
         </header>
