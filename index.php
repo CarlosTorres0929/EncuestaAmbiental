@@ -1,5 +1,6 @@
 <?php
 include("controlador/agregarTransporte_cs.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,10 @@ include("controlador/agregarTransporte_cs.php");
             <meta charset="utf-8" />
             <title>Encuesta</title>
             <link rel="shortcut icon" href="utilidades/logo.png" type="image/x-icon">
+            
+            
+
+</script>
             </head>
             <body>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -46,6 +51,7 @@ include("controlador/agregarTransporte_cs.php");
                     <input type="hidden" name="agregar" id="agregar" value="1" />
                        <div class="form-group">
                        <input type="text" class="form-control" name="cedula" id="cedula" required="Este Campo es Obligatorio" placeholder="Ingresa el número de tu cédula" autofocus> 
+                       <div id="result-cedula"></div>
                    </div>
                    <div class="form-group">
                     <center>
@@ -271,7 +277,7 @@ include("controlador/agregarTransporte_cs.php");
                 <br>
                 <br>
                 <center>
-                <input class="btn btn-lg btn-primary" type="submit" value="Enviar" href="index.php"/>
+                <input class="btn btn-lg btn-primary" type="submit" id="enviar" value="Enviar" href="index.php"/>
                 <input class="btn btn-secondary btn-lg active" type="reset" value="Limpiar"/>
                 </center>
                    </form>

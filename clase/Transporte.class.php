@@ -22,6 +22,8 @@ var $diasincarro;
 var $diasinmoto;
 var $otro;
 
+
+
 	function Transporte()
 	{
 		 $id = 0;
@@ -39,6 +41,9 @@ var $otro;
 		 $diasinmoto = false;
 		 $otro = "";
 	}
+
+   
+
 
 	////////////////////////////////////////////////////////////////////////////////////
 	// agregarTransporte: Esta funcion es la responsable de agregar un transporte a la B.D

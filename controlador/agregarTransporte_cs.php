@@ -4,16 +4,18 @@
 //    Author:  Carlos Daniel Torres  < ct059489@gmail.com >
 ///////////////////////////
 
+// incluimos la conexion con la base de datos y la clase con la funcion sql
 include_once("config/conexion.php");
 include_once("clase/Transporte.class.php");
 
+// generamos un nuevo objeto de la clase Transporte
 $tph = new Transporte(); 
-
-		
+// creamos la condicion para nuestro formulario agregar		
 if(isset($_POST['agregar']) && $_POST['agregar'] == 1)
 {
-	$total = 0;
+	$total = 0;  // creamos una variable para realizar las validaciones con el puntaje
 
+// creamos las condiciones para cada campo que llenaremos en el formulario
 	@$dataTrabajo->cedula = mysqli_real_escape_string(@$conexion,@$_POST['cedula']);
 
 	
@@ -105,7 +107,97 @@ if(isset($_POST['agregar']) && $_POST['agregar'] == 1)
 			
 	$dataTrabajo->otro = mysqli_real_escape_string($conexion,@$_POST['otro_trabajo']);
 
+// creamos las condiciones para el puntaje de cada encuesta
+
+	if($dataTrabajo->sistema_metro  && $dataTrabajo->caminar ){
+		$total = 4;
+	}
+	if($dataTrabajo->sistema_metro  && $dataTrabajo->bicicleta ){
+		$total = 4;
+	}
+	if($dataTrabajo->sistema_metro  && $dataTrabajo->carro){
+		$total = 2;
+	}
+	if($dataTrabajo->sistema_metro  && $dataTrabajo->moto ){
+		$total = 2;
+	}
+	if($dataTrabajo->sistema_metro  && $dataTrabajo->bus ){
+		$total = 3;
+	}
+	if($dataTrabajo->sistema_metro  && $dataTrabajo->carro_compartido ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->bus  && $dataTrabajo->caminar ){
+		$total = 3;
+	}
+	if($dataTrabajo->bus && $dataTrabajo->bicicleta ){
+		$total = 3;
+	}
+
+	if($dataTrabajo->bus && $dataTrabajo->carro ){
+		$total = 1;
+	}
+
+	if($dataTrabajo->bus && $dataTrabajo->moto ){
+		$total = 1;
+	}
+
+	if($dataTrabajo->bus && $dataTrabajo->carro_compartido ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->bus && $dataTrabajo->moto_compartida ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->bicicleta && $dataTrabajo->caminar ){
+		$total = 9;
+	}
+
+	if($dataTrabajo->bicicleta && $dataTrabajo->moto ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->bicicleta && $dataTrabajo->carro ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->bicicleta && $dataTrabajo->carro_compartido ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->bicicleta && $dataTrabajo->moto_compartida ){
+		$total = 2;
+	}
+
+	if($dataTrabajo->caminar && $dataTrabajo->moto ){
+					$total = 2;
+				}
+
+		if($dataTrabajo->caminar && $dataTrabajo->carro ){
+					$total = 2;
+				}
+		if($dataTrabajo->caminar && $dataTrabajo->carro_compartido ){
+					$total = 2;
+				}
+
+		if($dataTrabajo->carro && $dataTrabajo->moto ){
+					$total = 1;
+				}
+		if($dataTrabajo->carro && $dataTrabajo->carro_compartido ){
+					$total = 2;
+				}
+		if($dataTrabajo->moto && $dataTrabajo->carro_compartido ){
+					$total = 2;
+				}
+
+		if($dataTrabajo->moto && $dataTrabajo->moto_compartida ){
+					$total = 2;
+				}
+
 	$dataTrabajo->total = $total;
+
 
 	$totalh = 0;
 
@@ -127,7 +219,7 @@ if(isset($_POST['agregar']) && $_POST['agregar'] == 1)
 	
 	if(mysqli_real_escape_string(@$conexion,@$_POST['carroHogar']) == 1){
 		$dataHogar->carro = mysqli_real_escape_string($conexion,$_POST['carroHogar']);
-		$dataHogar->totalh = $total += 1;
+		$totalh += 1;
 	}else{
 		$dataHogar->carro = 0;
 	}
@@ -190,6 +282,101 @@ if(isset($_POST['agregar']) && $_POST['agregar'] == 1)
 	}
 
 		$dataHogar->otro = mysqli_real_escape_string($conexion,@$_POST['otro_hogar']);
+
+		if($dataHogar->sistema_metro  && $dataHogar->caminar ){
+		$totalh = 4;
+		}
+		if($dataHogar->sistema_metro  && $dataHogar->bicicleta ){
+			$totalh = 4;
+		}
+		if($dataHogar->sistema_metro  && $dataHogar->carro){
+			$totalh = 2;
+		}
+		if($dataHogar->sistema_metro  && $dataHogar->moto ){
+			$totalh = 2;
+		}
+		if($dataHogar->sistema_metro  && $dataHogar->bus ){
+			$totalh = 3;
+		}
+		if($dataHogar->sistema_metro  && $dataHogar->carro_compartido ){
+			$totalh = 2;
+		}
+		if($dataHogar->sistema_metro  && $dataHogar->moto_compartida ){
+			$totalh = 2;
+		}
+
+		if($dataHogar->bus  && $dataHogar->caminar ){
+			$totalh = 3;
+		}
+		if($dataHogar->bus && $dataHogar->bicicleta ){
+			$totalh = 3;
+		}
+
+		if($dataHogar->bus && $dataHogar->carro ){
+			$totalh = 1;
+		}
+
+		if($dataHogar->bus && $dataHogar->moto ){
+			$totalh = 1;
+		}
+
+		if($dataHogar->bus && $dataHogar->carro_compartido ){
+			$totalh = 2;
+		}
+
+		if($dataHogar->bus && $dataHogar->moto_compartida ){
+			$totalh = 2;
+		}
+
+		if($dataHogar->bicicleta && $dataHogar->caminar ){
+			$totalh = 9;
+		}
+
+		if($dataHogar->bicicleta && $dataHogar->moto ){
+					$totalh = 2;
+				}
+
+		if($dataHogar->bicicleta && $dataHogar->carro ){
+					$totalh = 2;
+				}
+
+		if($dataHogar->bicicleta && $dataHogar->carro_compartido ){
+					$totalh = 2;
+				}
+		if($dataHogar->bicicleta && $dataHogar->moto_compartida ){
+					$totalh = 2;
+				}
+
+		if($dataHogar->caminar && $dataHogar->moto ){
+					$totalh = 2;
+				}
+
+		if($dataHogar->caminar && $dataHogar->carro ){
+					$totalh = 2;
+				}
+		if($dataHogar->caminar && $dataHogar->carro_compartido ){
+					$totalh = 2;
+				}
+		if($dataHogar->caminar && $dataHogar->moto_compartida ){
+					$totalh = 2;
+				}
+
+		if($dataHogar->carro && $dataHogar->moto ){
+					$totalh = 1;
+				}
+		if($dataHogar->carro && $dataHogar->carro_compartido ){
+					$totalh = 2;
+				}
+		if($dataHogar->carro && $dataHogar->moto_compartida ){
+					$totalh = 2;
+				}
+		if($dataHogar->moto && $dataHogar->carro_compartido ){
+					$totalh = 2;
+				}
+		if($dataHogar->moto && $dataHogar->moto_compartida ){
+					$totalh = 2;
+				}
+
 
 		$dataHogar->totalh = $totalh;
 	
