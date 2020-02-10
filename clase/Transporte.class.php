@@ -22,8 +22,6 @@ var $diasincarro;
 var $diasinmoto;
 var $otro;
 
-
-
 	function Transporte()
 	{
 		 $id = 0;
@@ -42,19 +40,33 @@ var $otro;
 		 $otro = "";
 	}
 
-   
-
-
 	////////////////////////////////////////////////////////////////////////////////////
 	// agregarTransporte: Esta funcion es la responsable de agregar un transporte a la B.D
 	////////////////////////////////////////////////////////////////////////////////////
 	function agregarTransporte($dataTrabajo, $dataHogar, $conexion)
 	{
 
-		 $sql1 = "
+		 $sql2 = "SELECT id_empleado FROM EMPLEADOS WHERE cedula = ".$dataTrabajo->cedula;
+		
+		 $consult = $conexion->query($sql2);
+		 $data = array();
+		 $i = 0;
+		
+
+		while($row=mysqli_fetch_array($consult))
+		{
+			@$data[$i]->id_empleado = $row['id_empleado'];
+
+			$i++;				
+		}	
+		
+		if($data[0]->id_empleado != null){
+			
+		$sql1 = "
 		 INSERT INTO  transporte_trabajo (
 		`id` ,
 		`cedula` ,
+		`id_empleado`,
 		`bus` ,
 		`sistema_metro` ,
 		`carro`,
@@ -71,7 +83,7 @@ var $otro;
 		`total` 
 		)
 		VALUES (
-		'NULL' , '".$dataTrabajo->cedula."','".$dataTrabajo->bus."', '".$dataTrabajo->sistema_metro."',  '".$dataTrabajo->carro."','".$dataTrabajo->moto."','".$dataTrabajo->carro_compartido."','".$dataTrabajo->moto_compartida."','".$dataTrabajo->bicicleta."','".$dataTrabajo->caminar."','".$dataTrabajo->vehiculo_electrico."','".$dataTrabajo->diasincarro."','".$dataTrabajo->diasinmoto."','".$dataTrabajo->otro."', '".date("Y-m-d")."','".$dataTrabajo->total."')";
+		'NULL' , '".$dataTrabajo->cedula."','".$data[0]->id_empleado."','".$dataTrabajo->bus."', '".$dataTrabajo->sistema_metro."',  '".$dataTrabajo->carro."','".$dataTrabajo->moto."','".$dataTrabajo->carro_compartido."','".$dataTrabajo->moto_compartida."','".$dataTrabajo->bicicleta."','".$dataTrabajo->caminar."','".$dataTrabajo->vehiculo_electrico."','".$dataTrabajo->diasincarro."','".$dataTrabajo->diasinmoto."','".$dataTrabajo->otro."', '".date("Y-m-d")."', '".$dataTrabajo->total."')";
 	
 		$conexion->query($sql1);
 		
@@ -79,6 +91,7 @@ var $otro;
 		 INSERT INTO  transporte_hogar (
 		`id` ,
 		`cedula` ,
+		`id_empleado`,
 		`bus` ,
 		`sistema_metro` ,
 		`carro`,
@@ -91,15 +104,14 @@ var $otro;
 		`diasincarro`,
 		`diasinmoto`,
 		`otro`,
-		`fecha_registro`,
-		`totalh` 
+		`fecha_registro` 
 		)
 		VALUES (
-		'NULL' , '".$dataHogar->cedula."','".$dataHogar->bus."', '".$dataHogar->sistema_metro."',  '".$dataHogar->carro."','".$dataHogar->moto."','".$dataHogar->carro_compartido."','".$dataHogar->moto_compartida."','".$dataHogar->bicicleta."','".$dataHogar->caminar."','".$dataHogar->vehiculo_electrico."','".$dataHogar->diasincarro."','".$dataHogar->diasinmoto."','".$dataHogar->otro."', '".date("Y-m-d")."','".$dataHogar->totalh."')";
+		'NULL' , '".$dataHogar->cedula."','".$data[0]->id_empleado."','".$dataHogar->bus."', '".$dataHogar->sistema_metro."',  '".$dataHogar->carro."','".$dataHogar->moto."','".$dataHogar->carro_compartido."','".$dataHogar->moto_compartida."','".$dataHogar->bicicleta."','".$dataHogar->caminar."','".$dataHogar->vehiculo_electrico."','".$dataHogar->diasincarro."','".$dataHogar->diasinmoto."','".$dataHogar->otro."', '".date("Y-m-d")."')";
 
 		
 		return $conexion->query($sql);
-		
+	}	
 		
 	}
 }
